@@ -14,6 +14,10 @@ $config = [
     'modules' => [
         'user' => [
             'class' => 'dektrium\user\Module',
+            'modelMap' => [
+                'RegistrationForm' => 'app\models\RegistrationForm',
+            ]
+            
         ],
     ],
     
@@ -22,7 +26,7 @@ $config = [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'b5AKNf9pq3oenDNgJzneIiUYDNaxt_Vq',
         ],
-        'cache' => [
+        'cache' => [ 
             'class' => 'yii\caching\FileCache',
         ],
         //'user' => [
@@ -34,6 +38,16 @@ $config = [
         ],
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
+            'transport' => [
+                'class' => 'Swift_SmtpTransport',
+                'host' => 'smtp.gmail.com',
+                'username' => 'myappyii2@gmail.com',
+                'password' => 'myapp123456',
+                'port' => '587',
+                'encryption' => 'tls',
+
+            ],
+            
             // send all mails to a file by default. You have to set
             // 'useFileTransport' to false and configure a transport
             // for the mailer to send real emails.
