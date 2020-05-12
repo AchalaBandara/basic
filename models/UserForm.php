@@ -2,6 +2,7 @@
 
 namespace app\models;
 
+use Yii;
 use yii\base\Model;
 
 class UserForm extends Model{
@@ -12,9 +13,11 @@ class UserForm extends Model{
     public function rules()
     {
         return [
-            [['name','email'],'required'],
+            [['name','email'], 'required'],
             ['email','email'],        
     ];
     }
+
+    
 
 }
